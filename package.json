@@ -1,0 +1,25 @@
+{
+  "name": "discord-dnd-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiago154/discord-dnd-bot.git"
+  },
+  "keywords": [],
+  "author": "Tiago Santos Da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiago154/discord-dnd-bot/issues"
+  },
+  "homepage": "https://github.com/tiago154/discord-dnd-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.0.2",
+    "dotenv": "^8.2.0",
+    "superagent": "^5.2.2"
+  }
+}
