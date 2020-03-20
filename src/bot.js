@@ -1,4 +1,4 @@
-const discord = require('discord.js')
-const bot = new discord.Client()
+const { Client } = require('discord.js')
+const bot = new Client()
 
 module.exports = bot
