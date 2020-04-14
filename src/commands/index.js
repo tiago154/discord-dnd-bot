@@ -1,20 +1,15 @@
 const bot = require('../bot')
-const { MessageEmbed } = require('discord.js')
+const buildMessage = require('../helpers/build-message')
 
 const COMMANDS = [
     '!conditions',
     '!condition <nome da condição>'
 ]
 
-const buildMessage = message => new MessageEmbed()
-    .setColor('BLUE')
-    .setTitle('Commands:')
-    .setDescription(message)
-
 const commands = msg => {
     if (msg.content === '!commands') {
         msg.reply('Segue comandos disponíveis:')
-        const embed = buildMessage(COMMANDS.map(c => `${c}`))
+        const embed = buildMessage('BLUE', 'Commands:', COMMANDS.map(c => `${c}`))
         msg.channel.send(embed)
     }
 }
