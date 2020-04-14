@@ -5,7 +5,7 @@ const COMMANDS = [
     '!conditions',
     '!condition <nome da condição>',
     '!abilities',
-    '!ability <nome da condição>'
+    '!ability <nome da habilidade>'
 ]
 
 const commands = msg => {
