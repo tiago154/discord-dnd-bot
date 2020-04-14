@@ -10,7 +10,7 @@ const allConditions = async msg => {
         const result = await get(endpoint.conditions)
         const conditions = factoryConditions(result).map(c => `:game_die: ${c}`)
         msg.reply('Segue todos as condições:')
-        const embed = buildMessage(COLOR, conditions, 'Conditions')
+        const embed = buildMessage(COLOR, 'Conditions', conditions)
         msg.channel.send(embed)
     }
 }
@@ -21,7 +21,7 @@ const specificCondition = async msg => {
         const { body } = await get(endpoint.conditions, conditionRaw)
         if (body.name) {
             msg.reply(`Segue a definição da condição :point_right: ${body.name} :point_left: :`)
-            const embed = buildMessage(COLOR, body.desc.map(d => `:game_die: ${d}`), body.name)
+            const embed = buildMessage(COLOR, body.name, body.desc.map(d => `:game_die: ${d}`))
             msg.channel.send(embed)
         } else {
             msg.reply(`Essa condição não foi localizada :cry:`)

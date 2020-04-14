@@ -3,7 +3,9 @@ const buildMessage = require('../helpers/build-message')
 
 const COMMANDS = [
     '!conditions',
-    '!condition <nome da condição>'
+    '!condition <nome da condição>',
+    '!abilities',
+    '!ability <nome da condição>'
 ]
 
 const commands = msg => {
