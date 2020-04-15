@@ -1,9 +1,7 @@
 require('dotenv').config()
 const bot = require('./bot')
 
-require('./ready')
-require('./conditions')
-require('./commands')
-require('./abilities')
-
-bot.login(process.env.BOT_TOKEN)
+require('./actions/ready')
+require('./actions/conditions')
+require('./actions/commands')
+require('./actions/abilities')

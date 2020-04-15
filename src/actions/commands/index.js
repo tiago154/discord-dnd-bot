@@ -1,5 +1,5 @@
-const bot = require('../bot')
-const buildMessage = require('../helpers/build-message')
+const bot = require('../../bot')
+const buildMessage = require('../../helpers/build-message')
 
 const COMMANDS = [
     '!conditions',

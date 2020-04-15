@@ -1,9 +1,12 @@
-const bot = require('../bot')
-const { get, endpoint } = require('../services')
+const bot = require('../../bot')
+const { get, endpoint } = require('../../services')
 const { factoryConditions } = require('./conditions')
-const buildMessage = require('../helpers/build-message')
+const buildMessage = require('../../helpers/build-message')
+const invalidCommand = require('../../helpers/invalid-command')
 
 const COLOR = 'RED'
+const INVALIDCOMMAND = '!condition'
+const INVALIDMESSAGE = 'Coloque o nome da condição na frente de !condition <espaço> <nome da condição>'
 
 const allConditions = async msg => {
     if (msg.content === '!conditions') {
@@ -29,11 +32,6 @@ const specificCondition = async msg => {
     }
 }
 
-const commandInvalid = async msg => {
-    if (msg.content === '!condition')
-        msg.reply('Coloque o nome da condição na frente de !condition <espaço> <nome da condição>')
-}
-
 bot.on('message', allConditions)
 bot.on('message', specificCondition)
-bot.on('message', commandInvalid)
+bot.on('message', invalidCommand(INVALIDMESSAGE, INVALIDCOMMAND))

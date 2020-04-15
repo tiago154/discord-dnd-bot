@@ -1,9 +1,12 @@
-const bot = require('../bot')
-const { get, endpoint } = require('../services')
+const bot = require('../../bot')
+const { get, endpoint } = require('../../services')
 const { factoryAbilities } = require('./abilities')
-const buildMessage = require('../helpers/build-message')
+const buildMessage = require('../../helpers/build-message')
+const invalidCommand = require('../../helpers/invalid-command')
 
 const COLOR = 'GREEN'
+const INVALIDCOMMAND = '!ability'
+const INVALIDMESSAGE = 'Coloque o nome da habilidade na frente de !ability <espaço> <nome da habilidade>'
 
 const allAbilities = async msg => {
     if (msg.content === '!abilities') {
@@ -37,11 +40,6 @@ const specificAbility = async msg => {
     }
 }
 
-const commandInvalid = async msg => {
-    if (msg.content === '!ability')
-        msg.reply('Coloque o nome da habilidade na frente de !ability <espaço> <nome da habilidade>')
-}
-
 bot.on('message', allAbilities)
 bot.on('message', specificAbility)
-bot.on('message', commandInvalid)
+bot.on('message', invalidCommand(INVALIDMESSAGE, INVALIDCOMMAND))
