@@ -1,7 +1,4 @@
 require('dotenv').config()
-const bot = require('./bot')
+const loadActions = require('./helpers/load-actions')
 
-require('./actions/ready')
-require('./actions/conditions')
-require('./actions/commands')
-require('./actions/abilities')
+loadActions('src/actions')
